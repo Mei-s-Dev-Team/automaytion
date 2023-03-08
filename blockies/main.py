@@ -5,7 +5,7 @@ code_type = "ahk"
 def main():
     if code_type == "ahk":
         f = open("test.ahk", "w")
-        f.wrtie('SetMouseDelay, 10; Global variables for waitUntil(hh, mm, ss,\
+        f.write('SetMouseDelay, 10; Global variables for waitUntil(hh, mm, ss,\
              interval)global hhglobal mmglobal ssglobal intervalglobal link; Window Contentgui, add, edit,\
                  r1 vhh w150, Hourgui, add, edit, r1 vmm w150, Minutegui, add, edit, r1 vss w150, Secondsgui,\
                      add, edit, r1 vinterval w150, Refresh Interval (seconds)gui, add, edit, r1 vlink w150,\
@@ -18,3 +18,6 @@ def main():
                                                                } ; If        sleep 1000*interval    } ; Loop} ; waitUntil')
         #os.system('cmd /k "Your Command Prompt Command"')
         f. close()
+
+if __name__ == '__main__':
+    main()
