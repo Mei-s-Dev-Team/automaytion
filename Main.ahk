@@ -1,4 +1,6 @@
-﻿; Global variables for waitUntil(hh, mm, ss, interval)
+﻿SetMouseDelay, 10
+
+; Global variables for waitUntil(hh, mm, ss, interval)
 global hh
 global mm
 global ss
@@ -11,28 +13,22 @@ gui, add, edit, r1 vmm w150, Minute
 gui, add, edit, r1 vss w150, Seconds
 gui, add, edit, r1 vinterval w150, Refresh Interval (seconds)
 gui, add, edit, r1 vlink w150, Link
-gui, add, button, default w150 grecord, submit
+gui, add, button, default w150, Submit
 
 ; Window Display Properties
-scaledWidth := A_ScreenWidth*.9
-scaledHeight := A_ScreenHeight*.9
-gui show, w%scaledWidth% h%scaledHeight%, autoMAYtion
-SetMouseDelay, 10
-
+scaledWidth := A_ScreenWidth*.5
+scaledHeight := A_ScreenHeight*.5
+gui show, xcenter ycenter w%scaledWidth% h%scaledHeight%, autoMAYtion
 return
 
-ButtonSubmit:
-gui, submit
+ButtonSubmit: 
+gui, submit, nohide
+action()
 
-record() {
+action() {
     msgbox %link%
     run, chrome.exe %link% " --new-window "
 } ; record
-
-stopRec() {
-    send, {F9} ; Stop Record Hotkey
-    Exit
-} ; StopRec
 
 waitUntil(hh, mm, ss, interval) {
     loop {
